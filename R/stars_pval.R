@@ -3,15 +3,17 @@ stars.pval <- function(p) {
     return(character())
   }
 
-  if (p < 0.0001) {
-    return("****")
-  }else if (p < 0.001) {
-    return("***")
-  } else if (p < 0.01) {
-    return("**")
-  } else if (p < 0.05) {
-    return("*")
-  } else {
-    return("")
-  }
+  sapply(p, function(x) {
+    if (x < 0.0001) {
+      return("****")
+    } else if (x < 0.001) {
+      return("***")
+    } else if (x < 0.01) {
+      return("**")
+    } else if (x < 0.05) {
+      return("*")
+    } else {
+      return("")
+    }
+  })
 }
